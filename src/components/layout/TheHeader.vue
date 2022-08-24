@@ -1,6 +1,10 @@
 <template>
 <header>
-	<h1>Barato Coletivo</h1>
+	<h1>
+		<router-link to="/ofertas" title="Voltar a home">
+			<img src="../../assets/logo.png" alt="">
+		</router-link>
+	</h1>
 </header>
 </template>
 
@@ -12,8 +16,13 @@ header {
 	color: var(--green-300);
 	background-color: var(--green-500);
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
+	padding: 16px 64px;
+}
+
+img {
+	max-width: 140px;
 }
 
 </style>
