@@ -3,7 +3,7 @@
 		<section v-for="(ofertasPorCategoria, categoria) in ofertas" :key="categoria">
 			<h2 class="text-xl font-bold capitalize mb-2 mt-4">{{ categoria }}</h2>
 			<ul>
-				<li v-for="oferta in ofertasPorCategoria" :key="oferta.id">
+				<li class="" v-for="oferta in ofertasPorCategoria" :key="oferta.id">
 					<oferta-item :oferta="oferta"></oferta-item>
 				</li>
 			</ul>
