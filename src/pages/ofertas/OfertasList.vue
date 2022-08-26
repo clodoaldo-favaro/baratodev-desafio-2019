@@ -1,8 +1,8 @@
 <template>
-	<div class="container">
+	<div class="main-container">
 		<section v-for="(ofertasPorCategoria, categoria) in ofertas" :key="categoria">
-			<h2 class="text-xl font-bold capitalize mb-2 mt-4">{{ categoria }}</h2>
-			<ul>
+			<h2 class="text-2xl font-bold capitalize mb-2 mt-4">{{ categoria }}</h2>
+			<ul class="flex flex-wrap justify-between">
 				<li class="" v-for="oferta in ofertasPorCategoria" :key="oferta.id">
 					<oferta-item :oferta="oferta"></oferta-item>
 				</li>
@@ -53,7 +53,10 @@ export default {
 					preco: 109.90,
 					categoria: 'entretenimento',
 					imagens: [
-
+						'https://static.baratocoletivo.com.br/2022/0817/oferta_16607588013556_1.jpg',
+						'https://static.baratocoletivo.com.br/2022/0817/g_79cf939265.jpg',
+						'https://static.baratocoletivo.com.br/2022/0817/g_a71c557d12.jpg',
+						'https://static.baratocoletivo.com.br/2022/0817/g_042211e1f5.jpg'
 					]
 				},
 				{
@@ -63,7 +66,10 @@ export default {
 					preco: 159.00,
 					categoria: 'gastronomia',
 					imagens: [
-
+						'https://static.baratocoletivo.com.br/2022/0701/oferta_16566447387664_oferta%202.jpg',
+						'https://static.baratocoletivo.com.br/2022/0701/g_818383bdaf.jpg',
+						'https://static.baratocoletivo.com.br/2022/0701/g_6b7de14840.jpg',
+						'https://static.baratocoletivo.com.br/2022/0701/g_64e1e12b7c.jpg'
 					]
 				},
 				{
@@ -73,7 +79,10 @@ export default {
 					preco: 199.00,
 					categoria: 'hoteis',
 					imagens: [
-
+						'https://static.baratocoletivo.com.br/2022/0728/oferta_16590375678390_1.jpeg',
+						'https://static.baratocoletivo.com.br/2022/0728/g_a964d91cc0.jpg',
+						'https://static.baratocoletivo.com.br/2022/0728/g_bde82e9a90.jpg',
+						'https://static.baratocoletivo.com.br/2022/0728/g_f84f3de208.jpg'
 					]
 				},
 				{
@@ -83,7 +92,10 @@ export default {
 					preco: 204.00,
 					categoria: 'hoteis',
 					imagens: [
-
+						'https://static.baratocoletivo.com.br/2022/0107/oferta_16415828277023_1.jpg',
+						'https://static.baratocoletivo.com.br/2022/0107/g_97c1915249.jpg',
+						'https://static.baratocoletivo.com.br/2022/0107/g_ed539765dd.jpg',
+						'https://static.baratocoletivo.com.br/2022/0107/g_e43f909778.jpg'
 					]
 				},
 				{
@@ -93,7 +105,10 @@ export default {
 					preco: 99.90,
 					categoria: 'entretenimento',
 					imagens: [
-
+						'https://static.baratocoletivo.com.br/2022/0818/oferta_16608359622866_1.jpg',
+						'https://static.baratocoletivo.com.br/2022/0818/g_26d37d5c4b.jpg',
+						'https://static.baratocoletivo.com.br/2022/0818/g_95722eb713.jpg',
+						'https://static.baratocoletivo.com.br/2022/0818/g_c795630068.jpg'
 					]
 				},
 				{
@@ -166,7 +181,6 @@ export default {
 				}
 				ofertas[oferta.categoria].push(oferta);
 			});
-			debugger;
 			this.ofertas = ofertas;
 		}
 	},
@@ -177,7 +191,12 @@ export default {
 </script>
 
 <style scoped>
-	.container {
+	.main-container {
 		padding: 0 64px;
+	}
+
+	li {
+		min-width: 320px;
+		max-width: 20%;
 	}
 </style>
