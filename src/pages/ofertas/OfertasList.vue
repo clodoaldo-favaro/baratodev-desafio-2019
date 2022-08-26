@@ -230,10 +230,20 @@ export default {
 
 <style scoped>
 	.main-container {
-		padding: 0 64px;
+		padding: 0 8px;
 	}
 
 	li {
-		max-width: 22%;
+		max-width: 100%;
+	}
+
+	@media screen and (min-width: 640px) {
+		.main-container {
+			padding: 0 64px;
+		}
+		
+		li {
+			max-width: 22%;
+		}
 	}
 </style>
