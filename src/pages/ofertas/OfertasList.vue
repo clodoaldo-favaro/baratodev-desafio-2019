@@ -231,6 +231,7 @@ export default {
 <style scoped>
 	.main-container {
 		padding: 0 8px;
+		margin-top: 6rem;
 	}
 
 	li {

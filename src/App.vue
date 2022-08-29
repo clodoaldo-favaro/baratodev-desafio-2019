@@ -23,10 +23,13 @@ export default {
 
 html {
   font-family: 'Roboto', sans-serif;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 body {
   margin: 0;
+  padding-top: 0;
 }
 
 </style>
