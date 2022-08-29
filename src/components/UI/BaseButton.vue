@@ -20,7 +20,7 @@ export default {
 	}
 
 	.confirm:hover {
-		background-color: #2C2B26;
+		background-color: var(--dark-gray-500);
 	}
 	.cancel {
 		background-color: var(--white-500);

@@ -3,7 +3,7 @@
 		<img :src="oferta.imagens[0]" alt="">
 		<h3 class="text-lg font-bold mt-2 mb-2">{{ oferta.empresa }}</h3>
 		<p class="mb-2"> {{ oferta.descricao }}</p>
-		<p class="mb-2"> {{ preco }}</p>
+		<p class="mb-2 font-bold"> {{ preco }}</p>
 		<base-button type="confirm" title="Comprar"></base-button>
 	</a>
 </template>
