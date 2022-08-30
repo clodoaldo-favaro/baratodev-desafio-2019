@@ -18,6 +18,12 @@ export default {
 	components: {
 		OfertaItem
 	},
+	data() {
+		return {
+			error: null,
+			isLoading: false
+		}
+	},
 	computed: {
 		ofertas() {
 			const ofertas = this.$store.getters['ofertas/ofertas'];
@@ -34,11 +40,13 @@ export default {
 	},
 	methods: {
 		async loadOfertas() {
+			this.isLoading = true;
 			try {
 				await this.$store.dispatch('ofertas/loadOfertas');
 			} catch (error) {
-				console.log(error.message);
+				this.error = error.message || 'Não foi possível carregar as ofertas!';
 			}
+			this.isLoading = false;
 		}
 	},
 	created() {
