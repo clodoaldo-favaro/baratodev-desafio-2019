@@ -1,5 +1,5 @@
 export default {
 	ofertas(state) {
-		return state.coaches;
+		return state.ofertas;
 	}
 }

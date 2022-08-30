@@ -13,23 +13,3 @@ export default {
 }
 
 </script>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: 'Roboto', sans-serif;
-  margin-top: 0;
-  padding-top: 0;
-}
-
-body {
-  margin: 0;
-  padding-top: 0;
-}
-
-</style>
