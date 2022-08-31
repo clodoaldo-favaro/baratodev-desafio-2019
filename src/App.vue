@@ -5,6 +5,8 @@
 
 <script>
 import TheHeader from './components/layout/TheHeader.vue';
+import { library } from '@fortawesome/fontawesome-svg-core'
+
 
 export default {
   components: {

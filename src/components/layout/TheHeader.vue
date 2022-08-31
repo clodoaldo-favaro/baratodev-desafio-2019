@@ -5,8 +5,18 @@
 			<img src="../../assets/logo.png" alt="">
 		</router-link>
 	</h1>
+	<carrinho-icon></carrinho-icon>
 </header>
 </template>
+
+<script>
+	import CarrinhoIcon from '../carrinho/CarrinhoIcon.vue';
+	export default {
+		components: {
+			CarrinhoIcon
+		}
+	}
+</script>
 
 <style scoped>
 
