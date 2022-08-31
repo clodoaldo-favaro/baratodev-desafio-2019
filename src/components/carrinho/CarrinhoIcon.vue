@@ -1,6 +1,7 @@
 <template>
 	<router-link to="/carrinho" title="Ver carrinho de compras">
 		<font-awesome-icon icon="fa-solid fa-cart-shopping" class="text-xl" />
+		<span v-if="itemsCount" class="ml-2 text-xl font-bold">{{ itemsCount }}</span>
 	</router-link>
 </template>
 
@@ -13,11 +14,11 @@
 		},
 		computed: {
 			itemsCount() {
-
+				return this.$store.getters['carrinho/items'].length;
 			}
 		},
 		created() {
-			this.loadCartItems();
+			//this.loadCartItems();
 		}
 	}
 </script>
@@ -26,5 +27,4 @@
 	.fa-cart-shopping {
 		color: var(--white-500);
 	}
-
 </style>

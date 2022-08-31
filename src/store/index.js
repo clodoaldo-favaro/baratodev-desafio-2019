@@ -1,10 +1,12 @@
 import { createStore } from "vuex";
 
 import ofertasModule from "./modules/ofertas";
+import carrinhoModule from "./modules/carrinho";
 
 const store = createStore({
 	modules: {
-		ofertas: ofertasModule
+		ofertas: ofertasModule,
+		carrinho: carrinhoModule
 	}
 });
 

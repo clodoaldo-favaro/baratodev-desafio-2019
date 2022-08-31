@@ -1,6 +1,5 @@
 export default {	
 	async loadOfertas(context, _) {
-		debugger;
 		const response = await fetch('https://ofertas-barato-coletivo-default-rtdb.firebaseio.com/ofertas.json');
 		const responseData = await response.json();
 
