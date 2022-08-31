@@ -9,7 +9,7 @@
 	export default {
 		methods: {
 			loadCartItems() {
-
+				this.$store.dispatch('carrinho/loadItems');
 			}
 		},
 		computed: {
@@ -18,7 +18,7 @@
 			}
 		},
 		created() {
-			//this.loadCartItems();
+			this.loadCartItems();
 		}
 	}
 </script>

@@ -4,7 +4,7 @@
 		<h3 class="text-lg font-bold mt-2 mb-2">{{ oferta.empresa }}</h3>
 		<p class="mb-2"> {{ oferta.descricao }}</p>
 		<p class="mb-2 font-bold"> {{ preco }}</p>
-		<base-button type="confirm" title="Comprar"></base-button>
+		<base-button @click.prevent="addItemToShoppingCart" type="confirm" title="Comprar"></base-button>
 	</a>
 </template>
 
@@ -18,6 +18,12 @@ export default {
 	computed: {
 		preco() {
 			return 'R$ ' + this.oferta.preco.toFixed(2).replace('.', ',');
+		}
+	},
+	methods: {
+		addItemToShoppingCart() {
+			debugger;
+			this.$store.dispatch('carrinho/addItem', this.oferta);
 		}
 	}
 }
