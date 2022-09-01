@@ -18,6 +18,9 @@
   --black-500: #070600;
   --dark-gray-500: #2C2B26;
   --white-500: #F7F7FF;
+  --red-600: #980800;
+  --red-500: #C40A00;
+  --red-400: #FF0D00;
 
   background-color: var(--green-300);
 

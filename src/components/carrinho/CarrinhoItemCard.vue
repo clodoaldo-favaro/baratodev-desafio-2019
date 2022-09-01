@@ -4,6 +4,7 @@
 		<p>{{ preco }}</p>
 		<p>{{ item.quantidade }}</p>
 		<p> {{ total }}</p>
+		<font-awesome-icon icon="fa-solid fa-trash" class="text-xl" title="Remover item do carrinho de compras" />
 	</li>
 </template>
 
@@ -20,3 +21,10 @@
 		}
 	}
 </script>
+
+<style scoped>
+	.fa-trash {
+		color: var(--red-600);
+		cursor: pointer;
+	}
+</style>
