@@ -1,12 +1,12 @@
 <template>
   <the-header></the-header>
-  <router-view></router-view>
+  <div class="main-container">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 import TheHeader from './components/layout/TheHeader.vue';
-import { library } from '@fortawesome/fontawesome-svg-core'
-
 
 export default {
   components: {
@@ -15,3 +15,17 @@ export default {
 }
 
 </script>
+
+
+<style>
+	.main-container {
+		padding: 0 8px;
+		margin: 6rem 0;
+	}
+
+	@media screen and (min-width: 640px) {
+		.main-container {
+			padding: 0 64px;
+		}
+	}
+</style>
