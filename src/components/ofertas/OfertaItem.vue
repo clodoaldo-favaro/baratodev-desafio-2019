@@ -22,7 +22,6 @@ export default {
 	},
 	methods: {
 		addItemToShoppingCart() {
-			debugger;
 			this.$store.dispatch('carrinho/addItem', this.oferta);
 		}
 	}

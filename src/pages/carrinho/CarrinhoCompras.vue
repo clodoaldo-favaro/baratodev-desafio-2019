@@ -1,8 +1,10 @@
 <template>
-	<h1 class="text-2xl font-bold mb-12">Carrinho de compras</h1>
-	<ul>
-		<carrinho-item-card v-for="item in itemsCarrinho" :item="item"></carrinho-item-card>
-	</ul>
+	<div class="px-1 sm:px-0">
+		<h1 class="text-2xl font-bold mb-12 text-center sm:text-left">Carrinho de compras</h1>
+		<ul>
+			<carrinho-item-card v-for="item in itemsCarrinho" :item="item"></carrinho-item-card>
+		</ul>
+	</div>
 </template>
 
 <script>
@@ -17,7 +19,6 @@ export default {
 			const items = this.$store.getters['carrinho/items'];
 
 			items.forEach((item) => {
-				debugger;
 				if (!(item.id in itemsAgrupados)) {
 					itemsAgrupados[item.id] = {
 						quantidade: 0,
