@@ -2,7 +2,7 @@
 	<div class="px-1 sm:px-0">
 		<h1 class="text-2xl font-bold mb-12 text-center sm:text-left">Carrinho de compras</h1>
 		<ul>
-			<carrinho-item-card v-for="item in itemsCarrinho" :item="item"></carrinho-item-card>
+			<carrinho-item-card @remove-item="removeItem" v-for="item in itemsCarrinho" :item="item"></carrinho-item-card>
 		</ul>
 	</div>
 </template>
@@ -28,6 +28,11 @@ export default {
 				itemsAgrupados[item.id]['quantidade']++;
 			});
 			return itemsAgrupados;
+		}
+	},
+	methods: {
+		removeItem(itemId) {
+			this.$store.dispatch('carrinho/removeItem', { itemId });
 		}
 	}
 }

@@ -4,6 +4,11 @@ export default {
 	},
 	addItem(state, payload) {
 		state.items.push(payload);
-		localStorage.setItem('baratoColetivoShoppingCartItems', JSON.stringify(state.items));
-	}
+		setLocalStorageItems(state.items);
+	},
+	removeItem(state, itemId) {
+		state.items = state.items.filter(item => item.id !== itemId);
+		setLocalStorageItems(state.items);
+	},
 }
+var setLocalStorageItems = (items) => { localStorage.setItem('baratoColetivoShoppingCartItems', JSON.stringify(items)) };
