@@ -1,5 +1,5 @@
 <template>
-	<li class="sm:hidden mb-8 shadow-md border-2 border-solid p-4 rounded-md" tabindex="0">
+	<li class="mb-8 shadow-md border-2 border-solid p-4 rounded-md" tabindex="0">
 		<p class="font-bold">{{ item.descricao }}</p>
 		<p class="text-sm">Preço: R$ {{ preco }}</p>
 		<p class="mt-2">Quantidade: {{ item.quantidade }}</p>
