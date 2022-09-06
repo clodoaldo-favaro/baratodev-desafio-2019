@@ -6,11 +6,14 @@
 		</ul>
 		<div v-else class="carrinho-items-container border-2 w-full shadow-md rounded-md">
 			<div class="carrinho-items-header p-2 mb-2 grid grid-cols-12 rounded-md">
-				<div class="col-span-4 font-bold">Descrição</div>
-				<div class="col-span-2 font-bold">Preço</div>
-				<div class="col-span-2 font-bold">Quantidade</div>
-				<div class="col-span-3 font-bold">Total</div>
+				<div class="col-span-7 font-bold">Descrição</div>
+				<div class="col-span-1 font-bold">Preço</div>
+				<div class="col-span-1 font-bold">Quantidade</div>
+				<div class="col-span-2 font-bold">Total</div>
 				<div class="col-span-1 font-bold"></div>
+			</div>
+			<div class="carrinho-items-lista p-2 mb-2 grid grid-cols-12 rounded-md">
+				<carrinho-item @remove-item="removeItem" v-for="item in itemsCarrinho" :item="item"></carrinho-item>
 			</div>
 		</div>
 
@@ -19,9 +22,10 @@
 
 <script>
 import CarrinhoItemCard from '../../components/carrinho/CarrinhoItemCard.vue';
+import CarrinhoItem from '../../components/carrinho/CarrinhoItem.vue';
 export default {
 	components: {
-		CarrinhoItemCard
+		CarrinhoItemCard, CarrinhoItem
 	},
 	data() {
 		return {
