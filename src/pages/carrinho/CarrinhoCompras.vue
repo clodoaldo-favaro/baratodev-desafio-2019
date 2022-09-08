@@ -1,22 +1,26 @@
 <template>
 	<div class="px-1 sm:px-0">
 		<h1 class="text-2xl font-bold mb-12 text-center sm:text-left">Carrinho de compras</h1>
-		<ul v-if="isMobile">
-			<carrinho-item-card @remove-item="removeItem" v-for="item in itemsCarrinho" :item="item"></carrinho-item-card>
-		</ul>
-		<div v-else class="carrinho-items-container border-2 w-full shadow-md rounded-md">
-			<div class="carrinho-items-header p-2 mb-2 grid grid-cols-12 rounded-md">
-				<div class="col-span-7 font-bold">Descrição</div>
-				<div class="col-span-1 font-bold">Preço</div>
-				<div class="col-span-1 font-bold">Quantidade</div>
-				<div class="col-span-2 font-bold">Total</div>
-				<div class="col-span-1 font-bold"></div>
-			</div>
-			<div class="carrinho-items-lista p-2 mb-2 grid grid-cols-12 rounded-md">
-				<carrinho-item @remove-item="removeItem" v-for="item in itemsCarrinho" :item="item"></carrinho-item>
+		<div v-if="hasItemsCarrinho">
+			<ul v-if="isMobile">
+				<carrinho-item-card @remove-item="removeItem" v-for="item in itemsCarrinho" :item="item"></carrinho-item-card>
+			</ul>
+			<div v-else class="carrinho-items-container border-2 w-full shadow-md rounded-md">
+				<div class="carrinho-items-header p-2 mb-2 grid grid-cols-12 rounded-md">
+					<div class="col-span-7 font-bold">Descrição</div>
+					<div class="col-span-1 font-bold">Preço</div>
+					<div class="col-span-1 font-bold">Quantidade</div>
+					<div class="col-span-2 font-bold">Total</div>
+					<div class="col-span-1 font-bold"></div>
+				</div>
+				<div class="carrinho-items-lista p-2 mb-2 grid grid-cols-12 items-center rounded-md">
+					<carrinho-item @remove-item="removeItem" v-for="item in itemsCarrinho" :item="item"></carrinho-item>
+				</div>
 			</div>
 		</div>
-
+		<div v-else>
+			<p class="text-center text-xl">Ainda não há items no seu carrinho de compras.</p>
+		</div>
 	</div>
 </template>
 
@@ -29,7 +33,7 @@ export default {
 	},
 	data() {
 		return {
-			isMobile: window.screen.width < 480
+			isMobile: window.screen.width < 480,
 		}
 	},
 	computed: {
@@ -47,6 +51,10 @@ export default {
 				itemsAgrupados[item.id]['quantidade']++;
 			});
 			return itemsAgrupados;
+		},
+		hasItemsCarrinho() {
+			const items = this.$store.getters['carrinho/items'];
+			return Object.keys(items).length > 0;
 		}
 	},
 	methods: {

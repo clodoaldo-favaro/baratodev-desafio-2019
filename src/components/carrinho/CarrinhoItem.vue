@@ -3,7 +3,9 @@
     <div class="col-span-1">R$ {{ preco }}</div>
     <div class="col-span-1"> {{ item.quantidade }}</div>
     <div class="col-span-2">R$ {{ total }}</div>
-    <div class="col-span-1"></div>
+    <div class="col-span-1">
+        <font-awesome-icon @click="$emit('removeItem', item.id)" icon="fa-solid fa-trash" class="text-2xl" title="Remover item do carrinho de compras" />
+    </div>
 </template>
 
 <script>
@@ -21,5 +23,8 @@
 </script>
 
 <style scoped>
-
+    .fa-trash {
+		color: var(--red-600);
+		cursor: pointer;
+    }
 </style>
