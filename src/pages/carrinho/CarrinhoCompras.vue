@@ -5,21 +5,26 @@
 			<ul v-if="isMobile">
 				<carrinho-item-card @remove-item="removeItem" v-for="item in itemsCarrinho" :item="item"></carrinho-item-card>
 			</ul>
-			<div v-else class="carrinho-items-container border-2 w-full shadow-md rounded-md">
-				<div class="carrinho-items-header p-2 mb-2 grid grid-cols-12 rounded-md">
-					<div class="col-span-7 font-bold">Descrição</div>
-					<div class="col-span-1 font-bold">Preço</div>
-					<div class="col-span-1 font-bold">Quantidade</div>
-					<div class="col-span-2 font-bold">Total</div>
-					<div class="col-span-1 font-bold"></div>
+			<div v-else class="table w-full carrinho-items-container border-2 w-full shadow-lg">
+				<div class="table-header-group carrinho-items-header">
+					<div class="table-row">
+						<div class="table-cell col-span-7 p-2 mb-4 font-bold rounded-tl-md">Descrição</div>
+						<div class="table-cell col-span-1 font-bold">Preço</div>
+						<div class="table-cell col-span-1 font-bold">Quantidade</div>
+						<div class="table-cell col-span-2 font-bold">Total</div>
+						<div class="table-cell col-span-1 font-bold rounded-tr-md"></div>
+					</div>
 				</div>
-				<div class="carrinho-items-lista p-2 mb-2 grid grid-cols-12 items-center rounded-md">
+				<div class="table-row-group carrinho-items-lista">
 					<carrinho-item @remove-item="removeItem" v-for="item in itemsCarrinho" :item="item"></carrinho-item>
 				</div>
 			</div>
 		</div>
 		<div v-else>
-			<p class="text-center text-xl">Ainda não há items no seu carrinho de compras.</p>
+			<p class="text-center">Ainda não há items no seu carrinho de compras.</p>
+			<div class="text-center mt-4">
+				<router-link class="link-ofertas text-xl font-bold" to="/ofertas" title="Voltar para página de ofertas">Clique aqui para verificar nossas ofertas</router-link>
+			</div>
 		</div>
 	</div>
 </template>
@@ -67,12 +72,20 @@ export default {
 
 <style scoped>
 	.carrinho-items-container {
-		border-color: var(--gray-100);
+		border: none;
 	}
 
 	.carrinho-items-header {
 		background-color: var(--dark-gray-500);
 		color: var(--white-500);
+	}
+
+	.link-ofertas {
+		color: var(--link);
+	}
+
+	.carrinho-items-lista .table-row:nth-child(even) {
+		background-color: var(--gray-200);
 	}
 </style>
 

@@ -10,6 +10,7 @@
   line-height: 24px;
   font-weight: 400;
 
+  --green-600: #006871;
   --green-500: #006D77;
   --green-400: #83C5BE;
   --green-300: #EDF6F9;
@@ -24,6 +25,10 @@
   --red-600: #980800;
   --red-500: #C40A00;
   --red-400: #FF0D00;
+  --violet-500: #4B296B;
+  --blue-500: #372772;
+
+  --link: var(--blue-500);
 
   background-color: var(--green-300);
 
