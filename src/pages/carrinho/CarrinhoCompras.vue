@@ -3,7 +3,7 @@
 		<h1 class="text-2xl font-bold mb-12 text-center sm:text-left">Carrinho de compras</h1>
 		<div v-if="hasItemsCarrinho">
 			<ul v-if="isMobile">
-				<carrinho-item-card @remove-item="removeItem" v-for="item in itemsCarrinho" :item="item"></carrinho-item-card>
+				<carrinho-item-card @remove-item="removeItem" v-for="item in itemsCarrinho" :key="item.id" :item="item"></carrinho-item-card>
 			</ul>
 			<div v-else class="table w-full carrinho-items-container border-2 w-full shadow-lg">
 				<div class="table-header-group carrinho-items-header">
@@ -16,7 +16,9 @@
 					</div>
 				</div>
 				<div class="table-row-group carrinho-items-lista">
-					<carrinho-item @remove-item="removeItem" v-for="item in itemsCarrinho" :item="item"></carrinho-item>
+					<transition-group name="item-carrinho">
+						<carrinho-item @remove-item="removeItem" v-for="item in itemsCarrinho" :key="item.id" :item="item"></carrinho-item>
+					</transition-group>
 				</div>
 			</div>
 		</div>
@@ -87,5 +89,23 @@ export default {
 	.carrinho-items-lista .table-row:nth-child(even) {
 		background-color: var(--gray-200);
 	}
+
+	.item-carrinho-leave-from {
+		opacity: 1;
+	}
+
+	.item-carrinho-leave-active,
+	.item-carrinho-move {
+		transition: all 1s ease-in;
+	}
+
+	.item-carrinho-leave-to {
+		opacity: 0;
+	}
+
+	.item-carrinho-leave-active {
+		position: absolute;
+	}
+
 </style>
 
