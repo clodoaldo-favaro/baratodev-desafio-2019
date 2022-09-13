@@ -5,18 +5,16 @@
 			<ul v-if="isMobile">
 				<carrinho-item-card @remove-item="removeItem" v-for="item in itemsCarrinho" :key="item.id" :item="item"></carrinho-item-card>
 			</ul>
-			<div v-else class="table w-full carrinho-items-container border-2 w-full shadow-lg">
-				<div class="table-header-group carrinho-items-header">
-					<div class="table-row">
-						<div class="table-cell col-span-7 p-2 mb-4 font-bold rounded-tl-md">Descrição</div>
-						<div class="table-cell col-span-1 font-bold">Preço</div>
-						<div class="table-cell col-span-1 font-bold">Quantidade</div>
-						<div class="table-cell col-span-2 font-bold">Total</div>
-						<div class="table-cell col-span-1 font-bold rounded-tr-md"></div>
-					</div>
+			<div v-else class="w-full carrinho-items-container border-2 w-full shadow-lg">
+				<div class="flex items-center font-bold carrinho-items-header p-2">
+						<div class="w-4/12">Descrição</div>
+						<div class="w-2/12">Preço</div>
+						<div class="w-2/12">Quantidade</div>
+						<div class="w-2/12">Total</div>
+						<div class="w-1/12"></div>
 				</div>
-				<div class="table-row-group carrinho-items-lista">
-					<transition-group name="item-carrinho">
+				<div class="carrinho-items-lista">
+					<transition-group name="item-carrinho" @before-leave="beforeLeave">
 						<carrinho-item @remove-item="removeItem" v-for="item in itemsCarrinho" :key="item.id" :item="item"></carrinho-item>
 					</transition-group>
 				</div>
@@ -65,6 +63,14 @@ export default {
 		}
 	},
 	methods: {
+		beforeLeave(el) {
+			const {marginLeft, marginTop, width, height} = window.getComputedStyle(el);
+			el.style.left = `${el.offsetLeft - parseFloat(marginLeft, 10)}px`;
+			el.style.top = `${el.offsetTop - parseFloat(marginTop, 10)}px`;
+			el.style.width = width;
+			el.style.height = height;
+			//https://forum.vuejs.org/t/transition-group-leave-transition-w-position-absolute-jumping-to-top-left-flip/12258/12
+  		},
 		removeItem(itemId) {
 			this.$store.dispatch('carrinho/removeItem', { itemId });
 		}
@@ -86,26 +92,26 @@ export default {
 		color: var(--link);
 	}
 
-	.carrinho-items-lista .table-row:nth-child(even) {
-		background-color: var(--gray-200);
-	}
-
 	.item-carrinho-leave-from {
 		opacity: 1;
 	}
 
-	.item-carrinho-leave-active,
+	.item-carrinho-leave-active {
+		transition: all 1s ease-in;
+	}
+
 	.item-carrinho-move {
 		transition: all 1s ease-in;
 	}
 
 	.item-carrinho-leave-to {
 		opacity: 0;
+		transform: translateX(-30px);
 	}
 
 	.item-carrinho-leave-active {
 		position: absolute;
-	}
+	} 
 
 </style>
 

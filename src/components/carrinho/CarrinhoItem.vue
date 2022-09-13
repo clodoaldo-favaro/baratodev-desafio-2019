@@ -1,10 +1,10 @@
 <template>
-    <div class="table-row">
-        <div class="table-cell p-2 mb-2">{{ item.descricao }}</div>
-        <div class="table-cell">R$ {{ preco }}</div>
-        <div class="table-cell"> {{ item.quantidade }}</div>
-        <div class="table-cell">R$ {{ total }}</div>
-        <div class="table-cell">
+    <div class="flex items-center carrinho-item p-2">
+        <div class="w-4/12">{{ item.descricao }}</div>
+        <div class="w-3/12">R$ {{ preco }}</div>
+        <div class="w-2/12"> {{ item.quantidade }}</div>
+        <div class="w-2/12">R$ {{ total }}</div>
+        <div class="w-1/12">
             <font-awesome-icon @click="$emit('removeItem', item.id)" icon="fa-solid fa-trash" class="text-2xl" title="Remover item do carrinho de compras" />
         </div>
     </div>
@@ -30,11 +30,7 @@
 		cursor: pointer;
     }
 
-    .table-row:last-child .table-cell:first-child {
-        border-bottom-left-radius: 0.375rem;
-    }
-
-    .table-row:last-child .table-cell:last-child {
-        border-bottom-right-radius: 0.375rem;
-    }
+    .carrinho-item:nth-child(odd) {
+		background-color: var(--gray-200);
+	}
 </style>
