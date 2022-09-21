@@ -22,6 +22,11 @@
     export default {
         components: {
             BaseButton
+        },
+        methods: {
+            pay() {
+                console.log('Pay!');
+            }
         }
     }
 </script>
