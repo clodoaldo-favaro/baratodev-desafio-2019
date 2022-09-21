@@ -49,19 +49,7 @@ export default {
 	},
 	computed: {
 		itemsCarrinho() {
-			const itemsAgrupados = {};
-			const items = this.$store.getters['carrinho/items'];
-
-			items.forEach((item) => {
-				if (!(item.id in itemsAgrupados)) {
-					itemsAgrupados[item.id] = {
-						quantidade: 0,
-						...item
-					}
-				}
-				itemsAgrupados[item.id]['quantidade']++;
-			});
-			return itemsAgrupados;
+			return this.$store.getters['carrinho/groupedItems'];
 		},
 		hasItemsCarrinho() {
 			const items = this.$store.getters['carrinho/items'];
