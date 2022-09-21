@@ -19,6 +19,9 @@
 					</transition-group>
 				</div>
 			</div>
+			<div class="flex items-center justify-center mt-2">
+				<base-button @click.prevent="checkout" type="confirm" title="Finalizar compra"></base-button>
+			</div>
 		</div>
 		<div v-else>
 			<p class="text-center">Ainda não há items no seu carrinho de compras.</p>
@@ -32,9 +35,12 @@
 <script>
 import CarrinhoItemCard from '../../components/carrinho/CarrinhoItemCard.vue';
 import CarrinhoItem from '../../components/carrinho/CarrinhoItem.vue';
+import BaseButton from '../../components/UI/BaseButton.vue';
 export default {
 	components: {
-		CarrinhoItemCard, CarrinhoItem
+		CarrinhoItemCard, 
+		CarrinhoItem, 
+		BaseButton
 	},
 	data() {
 		return {
@@ -73,6 +79,9 @@ export default {
   		},
 		removeItem(itemId) {
 			this.$store.dispatch('carrinho/removeItem', { itemId });
+		},
+		checkout() {
+			this.$router.push('/checkout');
 		}
 	}
 }
