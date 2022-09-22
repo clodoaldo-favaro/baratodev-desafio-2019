@@ -1,5 +1,5 @@
 <template>
-	<button class="flex justify-center items-center w-auto h-12 py-2 px-12 rounded-lg font-bold" :class="buttonClass">
+	<button class="flex justify-center items-center h-12 py-2 px-12 rounded-lg font-bold" :class="buttonClass">
 		<font-awesome-icon v-if="type === 'payment'" class="mr-2" icon="fa-solid fa-money-bill" />
 		<span>{{ title }}</span>
 	</button>
@@ -35,16 +35,4 @@ export default {
 	.cancel:hover {
 		background-color: var(--green-400);
 	}
-
-	button {
-		width: 100%;
-	}
-
-	@media (min-width: 640px) {
-		button {
-			min-width: 260px;
-			max-width: 300px;
-		}
-	}
-
 </style>

@@ -1,11 +1,14 @@
 <template>
-	<a href="">
+	<div>
 		<img :src="oferta.imagens[0]" alt="">
 		<h3 class="text-lg font-bold mt-2 mb-2">{{ oferta.empresa }}</h3>
 		<p class="mb-2"> {{ oferta.descricao }}</p>
 		<p class="mb-2 font-bold"> {{ preco }}</p>
-		<base-button @click.prevent="addItemToShoppingCart" type="confirm" title="Comprar"></base-button>
-	</a>
+		<div class="flex flex-wrap flex-col sm:flex-row sm:justify-between">
+			<base-button @click.prevent="addItemToShoppingCart" type="confirm" class="w-full sm:w-max" title="Comprar"></base-button>
+			<base-button @click.prevent="goToOfferDetail" type="cancel" title="Detalhes"></base-button>
+		</div>
+	</div>
 </template>
 
 <script>
@@ -23,14 +26,11 @@ export default {
 	methods: {
 		addItemToShoppingCart() {
 			this.$store.dispatch('carrinho/addItem', this.oferta);
+		},
+		goToOfferDetail() {
+			this.$router.push('/ofertas/' + this.oferta.id);
 		}
 	}
 }
 
 </script>
-
-<style scoped>
-	a:hover {
-		cursor: pointer;
-	}
-</style>
