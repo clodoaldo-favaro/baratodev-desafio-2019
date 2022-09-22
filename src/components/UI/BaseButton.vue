@@ -27,7 +27,24 @@ export default {
 	}
 
 	.cancel {
-		background-color: var(--white-500);
+		background-color: var(--green-300);
 		color: var(--black-500);
+		border: 1px solid var(--black-500);
 	}
+
+	.cancel:hover {
+		background-color: var(--green-400);
+	}
+
+	button {
+		width: 100%;
+	}
+
+	@media (min-width: 640px) {
+		button {
+			min-width: 260px;
+			max-width: 300px;
+		}
+	}
+
 </style>

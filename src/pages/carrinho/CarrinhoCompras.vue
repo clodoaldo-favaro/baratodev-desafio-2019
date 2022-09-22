@@ -19,7 +19,8 @@
 					</transition-group>
 				</div>
 			</div>
-			<div class="flex items-center justify-center mt-2">
+			<div class="flex flex-col sm:flex-row items-center justify-center mt-2">
+				<base-button @click.prevent="offers" type="cancel" class="mb-4 sm:mb-0 sm:mr-4" title="Continuar comprando"></base-button>
 				<base-button @click.prevent="checkout" type="confirm" title="Finalizar compra"></base-button>
 			</div>
 		</div>
@@ -70,6 +71,9 @@ export default {
 		},
 		checkout() {
 			this.$router.push('/checkout');
+		},
+		offers() {
+			this.$router.push('/ofertas');
 		}
 	}
 }
